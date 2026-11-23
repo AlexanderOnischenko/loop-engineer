@@ -1,0 +1,14 @@
+interface:
+  display_name: Loop Engineer
+  short_description: Design, operate, and evolve engineering loops
+  default_prompt: Use $loop-engineer to build a reusable loop for this domain, then
+    prove the first outcome, establish repeatability, and improve efficiency.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
