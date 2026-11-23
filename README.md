@@ -41,9 +41,15 @@ For design only, say “create the Loop Operator and its role bindings, then sto
 | **Loop Operator** | Starts or follows the run, asks for assessment, routes confirmed blockers, and resumes the original workflow. |
 | **Executor** | Uses the native execution path and returns run IDs, observations, and evidence. |
 | **Assessor** | Applies the accepted contract, retrieves canonical verdicts, and localizes failures. |
-| **Fixer** | Resolves a confirmed blocker through its owner and returns validation evidence and a resume point. |
+| **Fixer** | Traces the first failed semantic transition, repairs or designs its owning boundary, and returns validation evidence and a resume point. |
 
 Loop Engineer reuses suitable skills, APIs, and deterministic checks. It authors a role skill or adapter when a responsibility is missing. A blocker with its own acceptance criterion and an iterative repair process can get a bounded child loop that shares the parent's budget.
+
+### How the Fixer works
+
+The Fixer traces the affected path from native input to acceptance. At each stage it identifies the input guarantees, the property that stage establishes, and the properties it preserves. It repairs the first violated transition at its owner. If no stage owns a required property, the Fixer designs the smallest missing boundary and connects its producer and consumer.
+
+For JSON repair, this could mean tracing candidate selection, recognition of strings and structural delimiters, and strict decoding. The repair belongs where its preconditions can be verified. The acceptance check still compares the decoded values and rejects inputs outside the supported repair scope.
 
 ## Advance the evidence
 
