@@ -51,6 +51,10 @@ The Fixer traces the affected path from native input to acceptance. At each stag
 
 For JSON repair, this could mean tracing candidate selection, recognition of strings and structural delimiters, and strict decoding. The repair belongs where its preconditions can be verified. The acceptance check still compares the decoded values and rejects inputs outside the supported repair scope.
 
+### Identify the target path
+
+Before a repair, trace the active workflow from its native entry point to the consumer and trace how the benchmark or telemetry observes it. Confirm the revision, configuration, and selected implementation for each path. A passing replay supports the stages it actually exercises. Verify a shared semantic rule at its owning boundary and on the affected target backends where available.
+
 ## Advance the evidence
 
 1. **First success.** Verify one end-to-end outcome against the agreed contract and record who performed each required action.
